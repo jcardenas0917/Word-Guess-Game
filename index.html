@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<title>Word Guessing Game</title>
+<html>
+    <body>
+
+        <div>
+                <h1>Word Guessing Game</h1>
+                <link rel="stylesheet" type="text/css" href="game.css">
+                    <form>
+                        <input id ="letter" type="letter" placeholder="Guess a letter">
+                        <input id = "word" type="word" placeholder= "Guess the full word">
+                        <br>
+                        <br>
+                        
+                        <p id="numofguess" type ="guess">10 guesses left</p>
+                        <p id="match" type="match"></p>
+                        
+                        <p id="used" type ="used"> Letters used</p>
+                        
+                        <br>
+                        <br>
+                        
+                        <div type="margin">
+                        <button type="button" id="startgame">Generate a word</button>
+                        <button type="button" id="addletter">Add letter</button>
+                        <button type="button" id ="guesstheword">Guess The Word</button>
+                        <button type ="button" id ="showanswer">Show Answer</button>
+                        <input type="button" id ="reload" value="Reload" onClick="document.location.reload(true)"></button>
+                        </div>   
+                        <p id="answer" type ="answer"></p><br>
+                        <br>
+                        <br>
+                        <p id="rules">RULES<br></p>
+                        <ul>
+                            <li>Click Generate a word to start a new game</li>
+                            <li>Type a letter in the Guess a letter textbox and click add letter </li>
+                            <li>You have 10 chances to guess the word</li>
+                            <li>Once you are ready to guess you  must type the full word <br>
+                                in the guess the full word text box(even if you guessed <br>
+                                all the letter)in order to win</li>
+                            <li>If you fail to guess the word in 10 tries the game is over</li>
+                            <li>Click the Show answer if you give up or lost the game to reveal<br>
+                                the answer</li>
+                            <li>Click reload to clear the game</li>
+                        </ul>
+                        
+                    </form>
+                        
+
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
