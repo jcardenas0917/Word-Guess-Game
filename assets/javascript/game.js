@@ -1,11 +1,11 @@
 // list of random words
-var randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwarves','fervid','fishhook','house','gazebo','gypsy','haiku','haphazard','hyphen',
-    'ivory','jazzy','jiffy','jinx','jukebox', 'kayak','kiosk','klutz', 'memento', 'mystify', 'numbskull', 'ostracize', 'oxygen', 'pajama', 'phlegm','pixel',
-    'polka','quad','quip','rhythmic','rogue','sphinx','squawk','swivel','toady','twelfth','unzip','waxy','wildebeest','yacht','zealous','zigzag','zippy','zombie',
-    'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
-    'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
-    'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
-    // var randomWord = ['house'];
+// var randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwarves','fervid','fishhook','house','gazebo','gypsy','haiku','haphazard','hyphen',
+//     'ivory','jazzy','jiffy','jinx','jukebox', 'kayak','kiosk','klutz', 'memento', 'mystify', 'numbskull', 'ostracize', 'oxygen', 'pajama', 'phlegm','pixel',
+//     'polka','quad','quip','rhythmic','rogue','sphinx','squawk','swivel','toady','twelfth','unzip','waxy','wildebeest','yacht','zealous','zigzag','zippy','zombie',
+//     'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
+//     'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
+//     'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
+    var randomWord = ['house'];
     
     // number of guesses allowed
     var guess = 10;
@@ -34,7 +34,7 @@ var randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwar
     // adds a letter and checks it agains the hidden word and restarts gam
     function addLetter(){
             document.getElementById("letter").focus();
-             var inputLetter = document.getElementById("letter").value;
+             var inputLetter = document.getElementById("letterguess").value;
              
 
                 if (hiddenWord.includes(inputLetter)){
@@ -125,9 +125,7 @@ document.getElementById("showanswer").onclick = function(){
 }
 
     
-    var inputLetter = document.getElementById("used");
-
-      // Next, we give JavaScript a function to execute when onkeyup event fires.
+    //var inputLetter = document.getElementById("used");
       document.onkeyup = function(event) {
         addLetter();
       };
