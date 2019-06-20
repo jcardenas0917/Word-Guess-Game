@@ -1,11 +1,11 @@
 // list of random words
-// var randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwarves','fervid','fishhook','house','gazebo','gypsy','haiku','haphazard','hyphen',
-//     'ivory','jazzy','jiffy','jinx','jukebox', 'kayak','kiosk','klutz', 'memento', 'mystify', 'numbskull', 'ostracize', 'oxygen', 'pajama', 'phlegm','pixel',
-//     'polka','quad','quip','rhythmic','rogue','sphinx','squawk','swivel','toady','twelfth','unzip','waxy','wildebeest','yacht','zealous','zigzag','zippy','zombie',
-//     'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
-//     'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
-//     'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
-    var randomWord = ['house'];
+var randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwarves','fervid','fishhook','house','gazebo','gypsy','haiku','haphazard','hyphen',
+    'ivory','jazzy','jiffy','jinx','jukebox', 'kayak','kiosk','klutz', 'memento', 'mystify', 'numbskull', 'ostracize', 'oxygen', 'pajama', 'phlegm','pixel',
+    'polka','quad','quip','rhythmic','rogue','sphinx','squawk','swivel','toady','twelfth','unzip','waxy','wildebeest','yacht','zealous','zigzag','zippy','zombie',
+    'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
+    'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
+    'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
+    // var randomWord = ['house'];
     
     // number of guesses allowed
     var guess = 10;
@@ -60,10 +60,13 @@
                          if (hiddenWord[j] === inputLetter) {
                                 answerArray[j] = inputLetter.toUpperCase();
                                 remainingLetters--;
+                                if (answerArray.join("")===hiddenWord.toString()){
+                                    alert("you win")
                                 }
-
+                            }
+        
                                 document.getElementById("answer").innerHTML = answerArray;
-                             }
+                        }
                             document.getElementById("letter").value="";
 
                             lettersUsed.push(inputLetter.toUpperCase());    
@@ -100,7 +103,7 @@
     }
 
     function showAnswer(){
-        document.getElementById("answer").innerHTML = hiddenWord;
+        document.getElementById("answer").innerHTML = hiddenWord.toLocaleUpperCase();
         guess=0;
         document.getElementById("numofguess").innerHTML = guess + " guesses left";
     };
@@ -121,15 +124,14 @@ document.getElementById("showanswer").onclick = function(){
     showAnswer()
 }
 
-var inputLetter = document.getElementById("letter");
-inputLetter.addEventListener("keyup",function(event){
-   
-    if (event.keyCode=== 13){
-        event.preventDefault();
-        document.getElementById("addletter").click();
-    }
-     
- });
+    
+    var inputLetter = document.getElementById("used");
+
+      // Next, we give JavaScript a function to execute when onkeyup event fires.
+      document.onkeyup = function(event) {
+        addLetter();
+      };
+
 
 
 
