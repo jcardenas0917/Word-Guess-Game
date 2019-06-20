@@ -11,37 +11,35 @@
     var guess = 10;
     // number of wins
     var wins = 0;
-    var correctCount = 0;
+   
     // generates a random word form the randon word array
     var randomNumber = Math.floor(Math.random(randomWord)*randomWord.length);
     var hiddenWord=(randomWord[randomNumber]);  
     // Empty arrays to store guess and answer dashes
     var answerArray = [];
     var lettersUsed = []; 
-    
+    var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","x","z"];
 //    Generates a new word and displays dashes,puts the curser in the guess letter box
     function startGame(){
         
-        document.getElementById("letter").focus();
+        // document.getElementById("letter").focus();
         
          for (var i = 0; i < hiddenWord.length; i++) {
             answerArray[i] = "_";
         }
         document.getElementById("answer").innerHTML = answerArray;
-           
+        guess=10;
+        lettersUsed=[];  
 };
 
-    // adds a letter and checks it agains the hidden word and restarts gam
-    function addLetter(){
-            document.getElementById("letter").focus();
-             var inputLetter = document.getElementById("letterguess").value;
+    document.onkeyup = function(event){
+             var inputLetter = event.key;
              
-
                 if (hiddenWord.includes(inputLetter)){
-                document.getElementById("match").innerHTML = inputLetter + " "+ "found!"
+                document.getElementById("match").innerHTML = inputLetter.toUpperCase() + " "+ "found!"
 
                 } else{
-                    document.getElementById("match").innerHTML = inputLetter + " "+ "Not found!"
+                    document.getElementById("match").innerHTML = inputLetter.toUpperCase() + " "+ "Not found!"
                     guess--;
                     document.getElementById("numofguess").innerHTML = guess + " guesses left";
                         if (guess===0){
@@ -60,79 +58,41 @@
                          if (hiddenWord[j] === inputLetter) {
                                 answerArray[j] = inputLetter.toUpperCase();
                                 remainingLetters--;
-                                if (answerArray.join("")===hiddenWord.toString()){
-                                    alert("you win")
-                                }
                             }
         
                                 document.getElementById("answer").innerHTML = answerArray;
                         }
-                            document.getElementById("letter").value="";
 
-                            lettersUsed.push(inputLetter.toUpperCase());    
-                            document.getElementById("used").innerHTML= "Letters used " + lettersUsed;     
+                            lettersUsed.push(inputLetter.toUpperCase());   
+                            document.getElementById("used").innerHTML= "Letters used " + lettersUsed;
+                            if (answerArray.join("")===hiddenWord.toLocaleUpperCase()){
+                                startGame();
+                                wins++;
+                                document.getElementById("numofwins").innerHTML = "Wins " + wins;
+                                document.getElementById("winner").innerHTML = "YOU WIN!!!";
+                                document.getElementById("used").innerHTML= "Letters used ";     
+                            }
+                            for (var k = 0; k < lettersUsed.length; k++){
+                                console.log(lettersUsed)
+                                console.log(inputLetter)
+                                if (inputLetter === lettersUsed){
+                                    
+                                    alert("letter was used");
+                                }
+                            }
          };
     
-
-        //  allows the user the chace to guess the full word
-    function guessFullWord(){
-        var inputFullWord = document.getElementById("word").value;
-        if(inputFullWord===hiddenWord){
-            alert(" YOU WIN!");
-            var again = confirm("Do you want to play again?");
-                            if(again){
-                                location.reload(); 
-                            }
-                            else{
-                                alert("Thanks for playing");
-                            }
-        }else {
-        alert(" Sorry not correct :(");
-        var again =confirm("Do you want to play again?");
-                            if(again){
-                                location.reload(); 
-                            }
-                            else{
-                                alert("Thanks for playing");
-                            }
-        }
-        
-        guess=0;
-        document.getElementById("numofguess").innerHTML = guess + " guesses left";
-        document.getElementById("answer").innerHTML = hiddenWord;
-    }
-
     function showAnswer(){
         document.getElementById("answer").innerHTML = hiddenWord.toLocaleUpperCase();
         guess=0;
+        wins=0;
         document.getElementById("numofguess").innerHTML = guess + " guesses left";
+        document.getElementById("numofwins").innerHTML = "Wins " + wins;
     };
 
-// document.getElementById("startgame").onclick = function() {
-//     startGame();
-// };
-document.getElementById("addletter").onclick = function(){
-   addLetter();
-    
-};
-
-document.getElementById("guesstheword").onclick = function(){
-    guessFullWord();
-    
-};
 document.getElementById("showanswer").onclick = function(){
     showAnswer()
 }
-
-    
-    //var inputLetter = document.getElementById("used");
-      document.onkeyup = function(event) {
-        addLetter();
-      };
-
-
-
-
 
     
 
