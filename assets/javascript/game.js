@@ -66,7 +66,6 @@ var randomWord = [
   "evasive",
   "deep",
   "shiny",
-  "lackadaisical",
   "open",
   "obedient",
   "witty",
@@ -142,6 +141,7 @@ var alphabet = [
 //  Start game, generates a new word and displays dashes
 function startGame() {
   // generates a random word form the randon word array
+  document.getElementById("message").innerHTML = " ";
   randomNumber = Math.floor(Math.random(randomWord) * randomWord.length);
   hiddenWord = randomWord[randomNumber];
   answerArray = [""]
@@ -186,7 +186,7 @@ document.onkeyup = function(event) {
   //clears you win
   document.getElementById("winner").innerHTML = " ";
   //clear errors
-  document.getElementById("error").innerHTML = " ";
+  document.getElementById("message").innerHTML = " ";
   
 
   //iterate through hidden word to find matches and add them to the answer replacing the dashes.
@@ -200,11 +200,11 @@ document.onkeyup = function(event) {
 
   //check if pressed key is valid letter character by calling lettersAllowed function
   if (lettersAllowed(inputLetter)) {
-    document.getElementById("error").innerHTML = "Invalid key pressed";
+    document.getElementById("message").innerHTML = "Invalid key pressed";
   } else {
     //Check if inputLetter is in lettersUsed by calling the checkDuplicates and displays error
     if (checkDuplicates(inputLetter, lettersUsed)) {
-        document.getElementById("error").innerHTML =
+        document.getElementById("message").innerHTML =
         inputLetter.toUpperCase() + " already used";
     } else {
       //if guess matches the hidden word letter found message
@@ -244,7 +244,7 @@ document.onkeyup = function(event) {
         document.getElementById("used").innerHTML = " ";
         document.getElementById("match").innerHTML = " ";
         lettersUsed = [];
-        startGame();
+        time();
       }
     }
   }
@@ -271,6 +271,12 @@ function newGame() {
     }
   }
 
+  function time(){
+     document.getElementById("message").innerHTML = "New Game starting soon";
+      setTimeout(function(){
+          startGame()
+      },3000)
+  }
 document.getElementById("showanswer").onclick = function() {
   showAnswer();
 };
