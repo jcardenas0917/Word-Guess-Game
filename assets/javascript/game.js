@@ -239,7 +239,7 @@ document.onkeyup = function(event) {
       //End of Game if the answer matches the hidden user wins the game
       if (answerArray.join("") === hiddenWord.toLocaleUpperCase()) {
         wins++;
-        document.getElementById("numofwins").innerHTML = "Wins " + wins;
+        document.getElementById("numofwins").innerHTML = "Win Streak " + wins;
         document.getElementById("winner").innerHTML = "YOU WIN";
         document.getElementById("used").innerHTML = " ";
         document.getElementById("match").innerHTML = " ";
@@ -263,7 +263,7 @@ function showAnswer() {
     document.getElementById("numofwins").innerHTML = "Wins " + wins;
   }
 }
-
+//starts a new game after pressing new game
 function newGame() {
     var game = confirm("Are you sure you want to start a new game?  You will lose your current score");
     if (game) {
@@ -271,8 +271,9 @@ function newGame() {
     }
   }
 
+//sets a timer for a new game to start
   function time(){
-     document.getElementById("message").innerHTML = "New Game starting soon";
+     document.getElementById("message").innerHTML = "New Game starting soon...";
       setTimeout(function(){
           startGame()
       },3000)
