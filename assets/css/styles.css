@@ -27,6 +27,10 @@ body {
 #reload{
     background-color: aquamarine;
 }
+#text{
+    display: none;
+}
+
 
 @media screen and (max-width: 768px){
     #text{
