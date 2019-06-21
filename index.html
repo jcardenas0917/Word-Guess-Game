@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<title>Word Guessing Game</title>
-<html>
-    <body onload = "startGame()">
+<html lang="en">
 
-        <div class="container">
-                <h1>Word Guessing Game</h1>
-                <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-                <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
-                  
-                        <br>
-                        <br>
-                        
-                        <p id="numofguess" type ="guess">10 guesses left</p>
-                        <p id="numofwins" type="win">Wins</p>
-                        <p id="match" type="match"></p>
-                        <p id="used" type ="used"> Letters used</p>
-                        <p id="winner" type ="winner"></p>
-                        <br>
-                        <br>
-                        
-                       
-                        <button type ="button" id ="showanswer">Show Answer</button>
-                        <input type="button" id ="reload" value="Reload" onClick="document.location.reload(true)"></button>   
-                        <p id="answer" type ="answer"></p><br>
-                        <br>
-                        <br>
-        </div>
-        <script type="text/javascript" src="./assets/javascript/game.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+
+    <title>Hangman Game</title>
+</head>
+
+<body onload="startGame()">
+    <div class ="container">
+    <div class="jumbotron">
+            <div class="row">
+            <div class="col-md-3">
+                </div>
+                    <div class="col-md-6">
+            <h1 id="title">Word Guessing Game</h1>
+                    </div>
+                </div>
+
+        <p id="numofguess" type="guess">10 guesses left</p>
+        <p id="numofwins" type="win">Wins</p>
+        <p id="match" type="match"></p>
+        <p id="used" type="used"> Letters used</p>
+        <p id="winner" type="winner"></p>
+        <br>
+        <br>
+
+
+        <button type="button" id="showanswer">Show Answer</button>
+        <input type="button" id="reload" value="Reload" onClick="document.location.reload(true)"></button>
+        <p id="answer" type="answer"></p><br>
+        <br>
+        <br>
+    </div>
+</div>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+</body>
+
 </html>

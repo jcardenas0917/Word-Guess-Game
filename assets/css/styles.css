@@ -1,0 +1,22 @@
+html,
+body {
+    background-image: url("../images/guess.jpg");
+    background-repeat: repeat;
+}
+#title{
+    font-size: 50px;
+    color:#2614cf;
+    font-weight: bold;
+}   
+.jumbotron{
+    background-color: transparent;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color:#2614cf
+}
+
+#answer{
+    font-size: 100px;
+    color:black;
+}   
