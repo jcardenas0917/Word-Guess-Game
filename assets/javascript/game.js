@@ -5,7 +5,7 @@
 //     'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
 //     'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
 //     'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
-    var randomWord = ['house'];
+  var randomWord = ["scissors"];
     
     // number of guesses allowed
     var guess = 10;
@@ -18,7 +18,7 @@
     // Empty arrays to store guess and answer dashes
     var answerArray = [];
     var lettersUsed = []; 
-    var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","x","z"];
+    
 //    Generates a new word and displays dashes,puts the curser in the guess letter box
     function startGame(){
         
@@ -29,12 +29,65 @@
         }
         document.getElementById("answer").innerHTML = answerArray;
         guess=10;
-        lettersUsed=[];  
-};
+        document.getElementById("numofguess").innerHTML = guess + " guesses left";
+        lettersUsed=[]; 
+        
+    };
+
+    function lettersAllowed(allowed){
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        // Iterate through alphabet
+        for (var i = 0; i < alphabet.length; i++){
+            console.log(alphabet[i]);
+            // Checks if input letter is not contained in alphabet
+            if(alphabet[i]===allowed)
+            {   
+                console.log(allowed);
+                
+                return false;
+                
+            }
+
+        }
+        
+        return true;
+    }
+
+    function checkDuplicates(letter, letterArray){
+        
+
+        // Iterate through lettersUsed
+        for (var i = 0; i < letterArray.length; i++){
+
+
+            // Checks if letter is contained in lettersUsed
+            if(letterArray[i].toLocaleUpperCase()===letter.toLocaleUpperCase())
+            {
+            
+                return true;
+                
+            }
+
+        }
+        
+        return false;
+    }
 
     document.onkeyup = function(event){
              var inputLetter = event.key;
-             
+             console.log("about to check")
+
+            //check if pressed key is valid letter character
+            if (lettersAllowed(inputLetter)){
+                alert("not a valid key");
+            }else{
+             //Check if inputLetter is in lettersUsed
+             if (checkDuplicates(inputLetter, lettersUsed)){
+
+                alert("you already used "+ inputLetter);
+                 
+             } else {
+                
                 if (hiddenWord.includes(inputLetter)){
                 document.getElementById("match").innerHTML = inputLetter.toUpperCase() + " "+ "found!"
 
@@ -53,35 +106,38 @@
                             }
                         }
                     }
-             var remainingLetters = hiddenWord.length ;
-                     for (var j = 0; j < remainingLetters; j++) {
+            
+                     for (var j = 0; j < hiddenWord.length; j++) {
                          if (hiddenWord[j] === inputLetter) {
                                 answerArray[j] = inputLetter.toUpperCase();
-                                remainingLetters--;
                             }
         
                                 document.getElementById("answer").innerHTML = answerArray;
                         }
 
                             lettersUsed.push(inputLetter.toUpperCase());   
+                            console.log(lettersUsed)   
                             document.getElementById("used").innerHTML= "Letters used " + lettersUsed;
+
                             if (answerArray.join("")===hiddenWord.toLocaleUpperCase()){
-                                startGame();
                                 wins++;
                                 document.getElementById("numofwins").innerHTML = "Wins " + wins;
-                                document.getElementById("winner").innerHTML = "YOU WIN!!!";
-                                document.getElementById("used").innerHTML= "Letters used ";     
+                                document.getElementById("used").innerHTML= "Letters used "; 
+
+                                document.getElementById("answer").innerHTML = answerArray;
+                                guess=10;
+                                document.getElementById("numofguess").innerHTML = guess + " guesses left";
+
+                                alert("the word is " + hiddenWord + " You win");
+
+                                lettersUsed=[]; 
+
+                                startGame();   
                             }
-                            for (var k = 0; k < lettersUsed.length; k++){
-                                console.log(lettersUsed)
-                                console.log(inputLetter)
-                                if (inputLetter === lettersUsed){
-                                    
-                                    alert("letter was used");
-                                }
-                            }
+                        }
+                    }                 
          };
-    
+         
     function showAnswer(){
         document.getElementById("answer").innerHTML = hiddenWord.toLocaleUpperCase();
         guess=0;
