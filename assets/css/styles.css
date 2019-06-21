@@ -5,18 +5,25 @@ body {
 }
 #title{
     font-size: 50px;
-    color:#2614cf;
+    color:#da2e17;
     font-weight: bold;
 }   
 .jumbotron{
-    background-color: transparent;
+    background-color:transparent;
     text-align: center;
     font-size: 50px;
     font-weight: bold;
-    color:#2614cf
+    color:#da2e17
 }
 
 #answer{
     font-size: 100px;
     color:black;
 }   
+
+#showanswer{
+    background-color: aquamarine;
+}
+#reload{
+    background-color: aquamarine;
+}
