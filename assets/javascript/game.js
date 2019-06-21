@@ -146,9 +146,9 @@ function startGame() {
   hiddenWord = randomWord[randomNumber];
   answerArray = [""]
   for (var i = 0; i < hiddenWord.length; i++) {
-    answerArray[i] = "_";
+    answerArray[i] = "_" ;
   }
-    document.getElementById("answer").innerHTML = answerArray;
+    document.getElementById("answer").innerHTML = answerArray.join(" ");
   guess = 10;
   document.getElementById("numofguess").innerHTML = guess + " guesses left";
   lettersUsed = [];
@@ -192,7 +192,7 @@ document.onkeyup = function(event) {
       answerArray[j] = inputLetter.toUpperCase();
     }
 
-    document.getElementById("answer").innerHTML = answerArray;
+    document.getElementById("answer").innerHTML = answerArray.join(" ");
   }
 
   //check if pressed key is valid letter character by calling lettersAllowed function
