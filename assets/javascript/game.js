@@ -1,11 +1,5 @@
 // list of random words
-var randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwarves','fervid','fishhook','house','gazebo','gypsy','haiku','haphazard','hyphen',
-    'ivory','jazzy','jiffy','jinx','jukebox', 'kayak','kiosk','klutz', 'memento', 'mystify', 'numbskull', 'ostracize', 'oxygen', 'pajama', 'phlegm','pixel',
-    'polka','quad','quip','rhythmic','rogue','sphinx','squawk','swivel','today','twelfth','unzip','waxy','wildebeest','yacht','zealous','zigzag','zippy','zombie',
-    'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
-    'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
-    'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
-
+var randomWord;
 var randomNumber;
 var hiddenWord;
 // number of guesses allowed
@@ -49,6 +43,12 @@ var alphabet = [
 //  Start game, generates a new word and displays dashes
 function startGame() {
     // generates a random word form the randon word array
+    randomWord = ['awkward','bagpipes','banjo','bungler','croquet','crypt','dwarves','fervid','fishhook','house','gazebo','gypsy','haiku','haphazard','hyphen',
+    'ivory','jazzy','jiffy','jinx','jukebox', 'kayak','kiosk','klutz', 'memento', 'mystify', 'numbskull', 'ostracize', 'oxygen', 'pajama', 'phlegm','pixel',
+    'polka','quad','quip','rhythmic','rogue','sphinx','squawk','swivel','today','twelfth','unzip','waxy','wildebeest','yacht','zealous','zigzag','zippy','zombie',
+    'dramatic', 'notebook','detail','graceful','carriage','plate','fold','rifle','memory','skillful','vengeful','brief','young','yarn','certain','evasive','deep',
+    'shiny','lackadaisical','open','obedient','witty','shiver','observation','bird','demonic','answer','aware','comparison','tedious','zealous','greasy','acoustic',
+    'cars','sincere','valuable','cave','curl','mine','plain','voiceless','defective','cable','mend','crabby','sturdy','knot','use','scissors','tow'];
     randomNumber = Math.floor(Math.random(randomWord) * randomWord.length);
     hiddenWord = randomWord[randomNumber];
   for (var i = 0; i < hiddenWord.length; i++) {
@@ -123,7 +123,7 @@ document.onkeyup = function(event) {
 
         //If guesses reaches 0 then the game is over and prompts for a new game
         if (guess === 0) {
-          alert("GAME OVER");
+          alert("GAME OVER the word was "+ hiddenWord);
           var again = confirm("Do you want to play again?");
           if (again) {
             location.reload();
