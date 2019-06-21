@@ -5,6 +5,13 @@ var randomWord = [
   "banjo",
   "bungler",
   "croquet",
+  "school",
+  "pigeon",
+  "winter",
+  "shirt",
+  "computer",
+  "house",
+  "wallet",
   "crypt",
   "dwarves",
   "fervid",
@@ -42,7 +49,6 @@ var randomWord = [
   "twelfth",
   "unzip",
   "waxy",
-  "wildebeest",
   "yacht",
   "zealous",
   "zigzag",
@@ -137,6 +143,7 @@ var alphabet = [
   "y",
   "z"
 ];
+var wSound = document.getElementById("win");
 
 //  Start game, generates a new word and displays dashes
 function startGame() {
@@ -236,6 +243,8 @@ document.onkeyup = function(event) {
       //Creates an array of letters used and displays them.
       lettersUsed.push(inputLetter.toUpperCase());
       document.getElementById("used").innerHTML = "Letters used " + lettersUsed;
+
+
       //End of Game if the answer matches the hidden user wins the game
       if (answerArray.join("") === hiddenWord.toLocaleUpperCase()) {
         wins++;
@@ -244,6 +253,7 @@ document.onkeyup = function(event) {
         document.getElementById("used").innerHTML = " ";
         document.getElementById("match").innerHTML = " ";
         lettersUsed = [];
+        winSound();
         time();
       }
     }
@@ -278,10 +288,17 @@ function newGame() {
           startGame()
       },3000)
   }
+
+  //play winning sound
+  function winSound(){
+       wSound.play();    
+  }
+  
+  //call function showAnswer
 document.getElementById("showanswer").onclick = function() {
   showAnswer();
 };
-
+    //call function newGame
 document.getElementById("reload").onclick = function() {
     newGame();
   };
