@@ -183,8 +183,11 @@ function checkDuplicates(letter, letterArray) {
 //event function starts checking for matching letters
 document.onkeyup = function(event) {
   var inputLetter = event.key;
+  //clears you win
   document.getElementById("winner").innerHTML = " ";
-  console.log("about to check");
+  //clear errors
+  document.getElementById("error").innerHTML = " ";
+  
 
   //iterate through hidden word to find matches and add them to the answer replacing the dashes.
   for (var j = 0; j < hiddenWord.length; j++) {
@@ -197,11 +200,12 @@ document.onkeyup = function(event) {
 
   //check if pressed key is valid letter character by calling lettersAllowed function
   if (lettersAllowed(inputLetter)) {
-    alert("not a valid key");
+    document.getElementById("error").innerHTML = "Invalid key pressed";
   } else {
-    //Check if inputLetter is in lettersUsed by calling the checkDuplicates
+    //Check if inputLetter is in lettersUsed by calling the checkDuplicates and displays error
     if (checkDuplicates(inputLetter, lettersUsed)) {
-      alert("you already used " + inputLetter);
+        document.getElementById("error").innerHTML =
+        inputLetter.toUpperCase() + " already used";
     } else {
       //if guess matches the hidden word letter found message
       if (hiddenWord.includes(inputLetter)) {
@@ -260,6 +264,18 @@ function showAnswer() {
   }
 }
 
+function newGame() {
+    var game = confirm("Are you sure you want to start a new game?  You will lose your current score");
+    if (game) {
+        location.reload();
+    }
+  }
+
 document.getElementById("showanswer").onclick = function() {
   showAnswer();
 };
+
+document.getElementById("reload").onclick = function() {
+    newGame();
+  };
+  

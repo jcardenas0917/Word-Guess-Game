@@ -6,8 +6,9 @@ min-height: 100vh;
 }
 #title{
     font-size: 50px;
-    color:#da2e17;
+    color:#1a17da;
     font-weight: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif
 }   
 .jumbotron{
     background-color:transparent;
@@ -24,7 +25,11 @@ min-height: 100vh;
 
 #showanswer{
     background-color: aquamarine;
+    font-size: 20px;
+    color:red;
 }
 #reload{
     background-color: aquamarine;
+    font-size: 20px;
+    color:red;
 }
