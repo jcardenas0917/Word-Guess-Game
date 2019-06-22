@@ -72,11 +72,6 @@ function checkDuplicates(letter, letterArray) {
 //event function starts checking for matching letters
 document.onkeyup = function(event) {
   var inputLetter = event.key;
-  //clears you win
-  document.getElementById("winner").innerHTML = " ";
-  //clear errors
-  document.getElementById("message").innerHTML = " ";
-  
 
   //iterate through hidden word to find matches and add them to the answer replacing the dashes.
   for (var j = 0; j < hiddenWord.length; j++) {
