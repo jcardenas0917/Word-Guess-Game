@@ -37,7 +37,7 @@ function startGame() {
   for (var i = 0; i < hiddenWord.length; i++) {
     answerArray[i] = "_" ;
   }
-    document.getElementById("answer").innerHTML = answerArray.join(" ");
+  document.getElementById("answer").innerHTML = answerArray.join(" ");
   guess = 10;
   document.getElementById("numofguess").innerHTML = guess + " guesses left";
   lettersUsed = [];

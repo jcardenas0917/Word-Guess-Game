@@ -13,13 +13,13 @@ min-height: 100vh;
 .jumbotron{
     background-color:transparent;
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     color:#da2e17
 }
 
 #answer{
-    font-size: 100px;
+    font-size: 50px;
     color:black;
 }   
 
@@ -33,3 +33,11 @@ min-height: 100vh;
     font-size: 20px;
     color:red;
 }
+
+
+
+/* @media screen and (max-width: 1200px){
+.jumbotron{
+    font-size: 20px;
+
+} */
