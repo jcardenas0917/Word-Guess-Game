@@ -40,6 +40,7 @@ function startGame() {
   document.getElementById("answer").innerHTML = answerArray.join(" ");
   guess = 10;
   document.getElementById("numofguess").innerHTML = guess + " guesses left";
+  document.getElementById("winner").innerHTML = "";
   lettersUsed = [];
 }
 //Checks for invalid key characters pressed
