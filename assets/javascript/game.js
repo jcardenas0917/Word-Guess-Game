@@ -72,13 +72,6 @@ function checkDuplicates(letter, letterArray) {
 
   return false;
 }
-//starts a new game after pressing new game
-function newGame() {
-  var game = confirm("Are you sure you want to start a new game?  You will lose your current score");
-  if (game) {
-      location.reload();
-  }
-}
 
 //sets a timer for a new game to start
 function time(){
@@ -86,12 +79,12 @@ function time(){
     setTimeout(function(){
         startGame()
     },3000)
-}
+};
 
 //play winning sound
 function winSound(){
      wSound.play();    
-}
+};
 //If the user gives up this is the option to quit the game
 function showAnswer() {
   var quit = confirm("Are you sure you want to quit?");
@@ -103,6 +96,8 @@ function showAnswer() {
     wins = 0;
     document.getElementById("numofguess").innerHTML = guess + " guesses left";
     document.getElementById("numofwins").innerHTML = "Wins " + wins;
+      " hints left";
+    time();
   }
 }
 
@@ -181,8 +176,6 @@ document.onkeyup = function(event) {
 document.getElementById("showanswer").onclick = function() {
   showAnswer();
 };
-    //call function newGame
-document.getElementById("reload").onclick = function() {
-    newGame();
-  };
+  
+
   
