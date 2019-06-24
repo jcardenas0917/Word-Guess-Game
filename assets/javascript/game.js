@@ -27,6 +27,9 @@ var alphabet = [
 ];
 var wSound = document.getElementById("win");
 
+
+//FUNCTIONS
+//===============================================================================================================
 //  Start game, generates a new word and displays dashes
 function startGame() {
   // generates a random word form the randon word array
@@ -69,7 +72,44 @@ function checkDuplicates(letter, letterArray) {
 
   return false;
 }
+//starts a new game after pressing new game
+function newGame() {
+  var game = confirm("Are you sure you want to start a new game?  You will lose your current score");
+  if (game) {
+      location.reload();
+  }
+}
 
+//sets a timer for a new game to start
+function time(){
+   document.getElementById("message").innerHTML = "New Game starting soon...";
+    setTimeout(function(){
+        startGame()
+    },3000)
+}
+
+//play winning sound
+function winSound(){
+     wSound.play();    
+}
+//If the user gives up this is the option to quit the game
+function showAnswer() {
+  var quit = confirm("Are you sure you want to quit?");
+  if (quit) {
+    document.getElementById(
+      "answer"
+    ).innerHTML = hiddenWord.toLocaleUpperCase();
+    guess = 0;
+    wins = 0;
+    document.getElementById("numofguess").innerHTML = guess + " guesses left";
+    document.getElementById("numofwins").innerHTML = "Wins " + wins;
+  }
+}
+
+
+
+//USER INTERACTION
+//========================================================================================================
 //event function starts checking for matching letters
 document.onkeyup = function(event) {
   var inputLetter = event.key;
@@ -137,41 +177,6 @@ document.onkeyup = function(event) {
     }
   }
 };
-
-//If the user gives up this is the option to quit the game
-function showAnswer() {
-  var quit = confirm("Are you sure you want to quit?");
-  if (quit) {
-    document.getElementById(
-      "answer"
-    ).innerHTML = hiddenWord.toLocaleUpperCase();
-    guess = 0;
-    wins = 0;
-    document.getElementById("numofguess").innerHTML = guess + " guesses left";
-    document.getElementById("numofwins").innerHTML = "Wins " + wins;
-  }
-}
-//starts a new game after pressing new game
-function newGame() {
-    var game = confirm("Are you sure you want to start a new game?  You will lose your current score");
-    if (game) {
-        location.reload();
-    }
-  }
-
-//sets a timer for a new game to start
-  function time(){
-     document.getElementById("message").innerHTML = "New Game starting soon...";
-      setTimeout(function(){
-          startGame()
-      },3000)
-  }
-
-  //play winning sound
-  function winSound(){
-       wSound.play();    
-  }
-  
   //call function showAnswer
 document.getElementById("showanswer").onclick = function() {
   showAnswer();
