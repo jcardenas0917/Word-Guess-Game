@@ -10,3 +10,6 @@ JS,
 CSS,
 HTML,
 I use bootstrap convined with CSS.
+https://jcardenas0917.github.io/Word-Guess-Game/
+
+https://jcardenas0917.github.io/Word_Guess_Game_Kids/
